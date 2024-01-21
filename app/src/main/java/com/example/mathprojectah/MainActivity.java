@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
@@ -39,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
     int vu;
     int vl;
 
-    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPreferences",MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPreferences.edit();
+
 
 
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onActivityResult(ActivityResult result) {
                     int myrate=result.getData().getIntExtra("rate",-1);
                     showToast("Thank you for rating us "+myrate);
+                    vm.setRate(myrate);
                 }
             });
 
@@ -59,16 +60,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPreferences",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        editor.putString("name", name);
 
         Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT);
 
         vm = new ViewModelProvider(this).get(ModelView.class);
 
         vm.vSetName(name);
-        showToast("Welcome "+vm.getName());
+        showToast("Welcome "+name);
         vm.vu.observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer vu) {
@@ -91,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(MainActivity.this,RateActivity.class);
                     activityResultLauncher.launch(intent1);
+                editor.putInt("rate", vm.getRate());
+                editor.apply();
             }
         });{
 
@@ -147,7 +152,9 @@ public class MainActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+                trans.add(R.id.frameLayout, new FragmentUser());
+                trans.commit();
             }
         });
 

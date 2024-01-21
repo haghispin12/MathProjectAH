@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:background="@android:color/background_light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/namev"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:hint="name"
+                android:textSize="19dp"></EditText>
+
+            <TextView
+                android:id="@+id/scorev"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:textSize="19dp"></TextView>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:id="@+id/ratev"
+                android:textSize="19dp"></TextView>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="ADD PICTURE"
+            android:id="@+id/imagebut"></Button>
+
+        <ImageView
+            android:id="@+id/imagev"
+            android:layout_width="90dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"></ImageView>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="ADD USER"
+            android:id="@+id/userBut"></Button>
+
+    </LinearLayout>
+</FrameLayout>
