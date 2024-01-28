@@ -72,6 +72,9 @@ public class ModelView extends ViewModel{
         us.setName(name);
     }
     public void setRate(int rate){us.setRate(rate);}
-    public int getRate(){return us.getRate();}
+    public int getRate(){
+        int rate = us.getRate();
+        return rate;
+    }
 
 }

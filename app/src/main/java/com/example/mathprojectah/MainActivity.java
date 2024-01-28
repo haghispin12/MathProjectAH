@@ -162,6 +162,8 @@ public class MainActivity extends AppCompatActivity {
         showAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intentShow = new Intent(MainActivity.this,ShowUsersActivity.class);
+                activityResultLauncher.launch(intentShow);
 
             }
         });
