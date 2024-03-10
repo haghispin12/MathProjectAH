@@ -1,5 +1,6 @@
 package com.example.mathprojectah;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.SeekBar;
 
@@ -7,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class ModelView extends ViewModel{
+    DBHelper dataBase;
     Exercise ex;
     User us;
     MutableLiveData<String> name;
@@ -75,6 +77,11 @@ public class ModelView extends ViewModel{
     public int getRate(){
         int rate = us.getRate();
         return rate;
+    }
+
+    public void vInsert(Context context){
+        dataBase = new DBHelper(context);
+        long id = dataBase.insert(us,context);
     }
 
 }

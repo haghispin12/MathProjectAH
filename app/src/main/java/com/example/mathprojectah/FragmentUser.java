@@ -1,8 +1,11 @@
 package com.example.mathprojectah;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.CONTEXT_IGNORE_SECURITY;
+import static android.content.Context.CONTEXT_INCLUDE_CODE;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -98,7 +101,7 @@ public class FragmentUser extends Fragment {
 
         addUser=view.findViewById(R.id.userBut);
         addUser.setOnClickListener(v -> {
-
+            vm.vInsert(requireActivity());
         });
 
         return view;
