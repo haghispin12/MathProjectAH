@@ -5,6 +5,7 @@ import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
@@ -12,9 +13,20 @@ import android.provider.MediaStore.Images.Media;
 public class User {
     private Uri uri;
     private String name;
-    private int score =0;
+    private int score=0;
     private int rating=0;
     private long id;
+    Bitmap bitmap;
+
+    public User(){}
+
+    public User(long id, String name, int rating, Bitmap bitmap,int score){
+        this.name = name;
+        this.score = score;
+        this.rating = rating;
+        this.score = score;
+        this.bitmap = bitmap;
+    }
 
     public void addScore(int num){
         score+=num;
@@ -50,4 +62,7 @@ public class User {
         this.id =id ;
     }
 
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
 }

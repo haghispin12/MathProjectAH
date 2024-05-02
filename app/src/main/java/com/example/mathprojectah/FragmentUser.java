@@ -18,6 +18,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.provider.MediaStore;
@@ -29,6 +30,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,6 +47,7 @@ public class FragmentUser extends Fragment {
     Button addUser;
     ModelView vm;
     Uri uri;
+    ArrayList<User> users;
 
     ActivityResultLauncher<Intent> startCamera = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -62,7 +65,14 @@ public class FragmentUser extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         vm = new ViewModelProvider(requireActivity()).get(ModelView.class);
+        users  =new ArrayList<>();
 
+        vm.myUsers.observe(getActivity(), new Observer<ArrayList<User>>() {
+            @Override
+            public void onChanged(ArrayList<User> users) {
+                int n =10;
+            }
+        });
     }
 
     @Override
@@ -101,7 +111,8 @@ public class FragmentUser extends Fragment {
 
         addUser=view.findViewById(R.id.userBut);
         addUser.setOnClickListener(v -> {
-            vm.vInsert(requireActivity());
+            vm.vInsert(requireActivity(),uri);
+
         });
 
         return view;

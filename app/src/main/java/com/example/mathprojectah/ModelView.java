@@ -1,27 +1,34 @@
 package com.example.mathprojectah;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.SeekBar;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
+
 public class ModelView extends ViewModel{
     DBHelper dataBase;
     Exercise ex;
     User us;
+    Uri uri;
     MutableLiveData<String> name;
     MutableLiveData<Integer> vu;
     MutableLiveData<Integer> vl;
     int lastScore;
     int skbr;
+    MutableLiveData<ArrayList<User>> myUsers;
+
 
 
     public ModelView(){
         ex = new Exercise();
         vu = new MutableLiveData<>();
         vl = new MutableLiveData<>();
+        myUsers = new MutableLiveData<>();
         name = new MutableLiveData<>();
         us = new User();
     }
@@ -69,19 +76,34 @@ public class ModelView extends ViewModel{
     public int vGetL(){return ex.getL();}
 
     public void vSetU(int u){ex.setU(u);}
+
     public void vSetL(int l){ex.setL(l);}
+
     public void vSetName(String name){
         us.setName(name);
     }
+
     public void setRate(int rate){us.setRate(rate);}
+
     public int getRate(){
         int rate = us.getRate();
         return rate;
     }
 
-    public void vInsert(Context context){
+    public void vInsert(Context context,Uri uri){
         dataBase = new DBHelper(context);
+        this.uri =uri;
+        us.setUri(uri);
         long id = dataBase.insert(us,context);
+        us.setId(id);
+        ArrayList<User> users = new ArrayList<>();
+        users = dataBase.selectAll();
+        int n= 0;
     }
 
+    public ArrayList<User> getAll(){
+        ArrayList<User> users = new ArrayList<>();
+        users = dataBase.selectAll();
+        return users;
+    }
 }
