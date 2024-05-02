@@ -1,4 +1,4 @@
-package com.example.mathprojectah;
+package com.example.mathprojectah.mathexercise;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.SeekBar;
 
 import androidx.fragment.app.FragmentActivity;
+
+import com.example.mathprojectah.R;
 
 /*
  * Main Activity class that loads {@link MainFragment}.

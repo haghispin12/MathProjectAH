@@ -1,4 +1,4 @@
-package com.example.mathprojectah;
+package com.example.mathprojectah.mathexercise;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.mathprojectah.R;
 
 
 public class LoginActivity extends AppCompatActivity {

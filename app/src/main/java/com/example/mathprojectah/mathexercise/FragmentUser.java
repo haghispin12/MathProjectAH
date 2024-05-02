@@ -1,13 +1,9 @@
-package com.example.mathprojectah;
+package com.example.mathprojectah.mathexercise;
 
 import static android.app.Activity.RESULT_OK;
-import static android.content.Context.CONTEXT_IGNORE_SECURITY;
-import static android.content.Context.CONTEXT_INCLUDE_CODE;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -15,9 +11,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -30,11 +24,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
+import com.example.mathprojectah.R;
 
-import javax.xml.transform.Result;
+import java.util.ArrayList;
 
 
 public class FragmentUser extends Fragment {

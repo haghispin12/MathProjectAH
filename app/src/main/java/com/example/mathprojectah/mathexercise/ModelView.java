@@ -1,9 +1,7 @@
-package com.example.mathprojectah;
+package com.example.mathprojectah.mathexercise;
 
 import android.content.Context;
 import android.net.Uri;
-import android.os.Bundle;
-import android.widget.SeekBar;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

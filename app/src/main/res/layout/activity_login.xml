@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".mathexercise.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity"
+        tools:context=".mathexercise.MainActivity"
         tools:layout_editor_absoluteX="-35dp"
         tools:layout_editor_absoluteY="0dp">
 

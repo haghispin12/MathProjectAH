@@ -1,4 +1,4 @@
-package com.example.mathprojectah;
+package com.example.mathprojectah.mathexercise;
 
 import static android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
 import static androidx.core.content.ContentProviderCompat.requireContext;
