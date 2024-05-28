@@ -7,12 +7,13 @@ public class ViewModel extends androidx.lifecycle.ViewModel {
     Card []cards;
 
     public ViewModel(){
-        cards = new Card[6];
+        getCB = new Actions();
+        cards=new Card[6];
     }
 
     public ArrayList<Card> setArr(){
         ArrayList<Card> card = new ArrayList<>();
-        getCB.getB(cards);
+        cards = getCB.getB(cards);
         for(int i=0;i<cards.length;i++){
             card.add(cards[i]);
         }

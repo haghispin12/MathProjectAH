@@ -4,10 +4,11 @@
     android:layout_height="120dp"
     android:orientation="horizontal">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/tvCardImg"
         android:layout_width="160dp"
         android:layout_height="120dp"
-        android:src="@drawable/card1"></ImageButton>
+        android:src="@drawable/card1"
+        android:layout_marginLeft="10dp"/>
 
 </LinearLayout>

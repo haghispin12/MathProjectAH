@@ -12,18 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public abstract class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder>{
+public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder>{
 
         public interface OnItenClickListener1{
             void onItemclick(Card item);
         }
 
         private ArrayList<Card> cards;
-        private CardsAdapter.OnItenClickListener1 listener;
+        private OnItenClickListener1 listener1;
 
-        public CardsAdapter(ArrayList<Card> cards, CardsAdapter.OnItenClickListener1 listener){
+        public CardsAdapter(ArrayList<Card> cards, OnItenClickListener1 listener){
             this.cards = cards;
-            this.listener = listener;
+            this.listener1 = listener;
         }
 
         @NonNull
@@ -34,8 +34,8 @@ public abstract class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyV
             return new CardsAdapter.MyViewHolder(view);
         }
 
-        public void onBindViewHolder(@NonNull CardsAdapter.MyViewHolder holder, int position){
-            holder.bind(cards.get(position),listener);
+        public void onBindViewHolder(@NonNull MyViewHolder holder, int position){
+            holder.bind(cards.get(position),listener1);
         }
 
         public int getItemCount(){
@@ -43,7 +43,7 @@ public abstract class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyV
         }
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{
-            ImageButton tvCardImg;
+            ImageView tvCardImg;
 
             public MyViewHolder(@NonNull View itemView){
                 super(itemView);

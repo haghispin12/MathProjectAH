@@ -8,9 +8,7 @@ public class Card {
     private boolean bomb;
     private int drawable;
 
-    public Card(){
-        name = name;
-    }
+    public Card(){}
 
     public int getName(){return name;}
 
@@ -22,5 +20,5 @@ public class Card {
 
     public void setBomb(boolean bomb){this.bomb = bomb;}
 
-    public void setDrawable(){this.drawable = drawable;}
+    public void setDrawable(int drawable){this.drawable = drawable;}
 }
