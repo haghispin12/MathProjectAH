@@ -20,6 +20,9 @@ public class PlayGround extends AppCompatActivity {
     ViewModel vm;
     private RecyclerView rcPlayGround;
     ImageButton imbt;
+    private CardsAdapter cardsAdapter;
+    ArrayList<Card> cards;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,16 +34,19 @@ public class PlayGround extends AppCompatActivity {
 
     public void initView(){
         vm = new ViewModel();
-        ArrayList<Card> cards = new ArrayList<>();
+        cards = new ArrayList<>();
         cards = vm.setArr();
-        CardsAdapter cardsAdapter = new CardsAdapter(cards, new CardsAdapter.OnItenClickListener1() {
+        cardsAdapter = new CardsAdapter(cards, new CardsAdapter.OnItenClickListener1() {
             @Override
             public void onItemclick(Card item) {
                 if(item.getBomb()){
                     //
                 }
-                else
-                    //item.setDrawable(R.drawable.fru);
+                else {
+                    cards.get(item.getName()).setDrawable(R.drawable.panda);
+                    cardsAdapter.update(cards);
+                    cardsAdapter.notifyDataSetChanged();
+                }
                 Toast.makeText(PlayGround.this,item.getName()+"",Toast.LENGTH_SHORT).show();
             }
         });

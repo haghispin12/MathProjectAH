@@ -38,6 +38,10 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
             holder.bind(cards.get(position),listener1);
         }
 
+        public void update(ArrayList<Card> cards){
+            this.cards = cards;
+        }
+
         public int getItemCount(){
             return cards.size();
         }
