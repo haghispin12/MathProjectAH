@@ -37,13 +37,11 @@ public class PlayGround extends AppCompatActivity {
             @Override
             public void onItemclick(Card item) {
                 if(item.getBomb()){
-                    int n = 10;
                     item.setDrawable(R.drawable.bomb);
                     finish();
                 }
                 else
-                    //item.setDrawable(R.drawable.fru);
-                Toast.makeText(PlayGround.this,item.getName()+"",Toast.LENGTH_SHORT).show();
+                    item.setDrawable(R.drawable.panda);
             }
         });
         rcPlayGround.setAdapter(cardsAdapter);
