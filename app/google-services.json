@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "655545277858",
+    "project_id": "mathprojectah",
+    "storage_bucket": "mathprojectah.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655545277858:android:1790e6cd53a5fe035c26fb",
+        "android_client_info": {
+          "package_name": "com.example.mathprojectah"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_PDKYELHa7DfM_vYE2AvPQhk9ClEqdrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

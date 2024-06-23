@@ -3,6 +3,7 @@ package com.example.mathprojectah;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +21,9 @@ public class PlayGround extends AppCompatActivity {
     ViewModel vm;
     private RecyclerView rcPlayGround;
     ImageButton imbt;
+    private ArrayList<Card> cards;
+    private CardsAdapter cardsAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,23 +35,27 @@ public class PlayGround extends AppCompatActivity {
 
     public void initView(){
         vm = new ViewModel();
-        ArrayList<Card> cards = new ArrayList<>();
+        cards = new ArrayList<>();
         cards = vm.setArr();
-        CardsAdapter cardsAdapter = new CardsAdapter(cards, new CardsAdapter.OnItenClickListener1() {
+        cardsAdapter = new CardsAdapter(cards, new CardsAdapter.OnItenClickListener1() {
             @Override
             public void onItemclick(Card item) {
                 if(item.getBomb()){
-                    //
+                    int n = 10;
+                    item.setDrawable(R.drawable.bomb);
+                    finish();
                 }
-                else
-                    //item.setDrawable(R.drawable.fru);
+                else {
+                    item.setDrawable(R.drawable.panda);
+                    cardsAdapter.update(cards);
+                    cardsAdapter.notifyDataSetChanged();
+                }
                 Toast.makeText(PlayGround.this,item.getName()+"",Toast.LENGTH_SHORT).show();
             }
         });
         rcPlayGround.setAdapter(cardsAdapter);
         rcPlayGround.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL,false));
         rcPlayGround.setHasFixedSize(true);
-
 
 
     }

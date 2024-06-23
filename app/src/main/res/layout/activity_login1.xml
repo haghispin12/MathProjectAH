@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    tools:context=".LoginActivity1">
+
+    <LinearLayout
+        android:layout_width="325dp"
+        android:layout_height="500dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="102dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/login"
+            android:textAlignment="center"
+            android:background="@color/black"></ImageView>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:hint="Email@gmai.com"
+            android:textStyle="bold"
+            android:id="@+id/nameL"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColorHint="@color/black"></EditText>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:hint="password"
+            android:id="@+id/passL"
+            android:textStyle="bold"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:layout_marginBottom="20dp"
+            android:textColorHint="@color/black"></EditText>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:id="@+id/in"
+            android:backgroundTint="@color/lb_grey"
+            android:textColor="@color/black"
+            android:text="sign in"></Button>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="SIGN UP"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:id="@+id/up"
+            android:backgroundTint="@color/lb_grey"></Button>
+    </LinearLayout>
+
+
+</ScrollView>

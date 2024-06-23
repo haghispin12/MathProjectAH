@@ -38,6 +38,10 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
             holder.bind(cards.get(position),listener1);
         }
 
+        public void update(ArrayList<Card> cards){
+            this.cards = cards;
+        }
+
         public int getItemCount(){
             return cards.size();
         }
@@ -55,10 +59,18 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(item.getBomb()){
+                            int n = 10;
+                            //cards[item.getName()].setDrawable(bomb.png);
+                        }
+                        else {
+                              //cards.setDrawable();
                         listener.onItemclick(item);
                     }
-                });
-            }
+                };
+            });
         }
+
+    }
 
 }

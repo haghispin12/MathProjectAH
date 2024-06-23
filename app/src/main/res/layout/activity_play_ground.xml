@@ -11,6 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        tools:listitem="@layout/activity_play_ground"></androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/activity_play_ground"/>
 
 </LinearLayout>
