@@ -37,6 +37,7 @@
             android:id="@+id/nameL"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textColorHint="@color/black"></EditText>
 
         <EditText
@@ -50,7 +51,8 @@
             android:inputType="textPassword"
             android:textAlignment="center"
             android:layout_marginBottom="20dp"
-            android:textColorHint="@color/black"></EditText>
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"></EditText>
 
         <Button
             android:layout_width="100dp"

@@ -3,6 +3,7 @@ package com.example.mathprojectah;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +17,9 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
 
         public interface OnItenClickListener1{
             void onItemclick(Card item);
+            void onItemclick1(Card item);
         }
+
 
         private ArrayList<Card> cards;
         private OnItenClickListener1 listener1;
@@ -46,29 +49,42 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
             return cards.size();
         }
 
-        public static class MyViewHolder extends RecyclerView.ViewHolder{
+        public static class MyViewHolder extends RecyclerView.ViewHolder {
             ImageView tvCardImg;
+            Button open;
+            Button thr;
 
-            public MyViewHolder(@NonNull View itemView){
+            public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
                 tvCardImg = itemView.findViewById(R.id.tvCardImg);
+                open = itemView.findViewById(R.id.open);
+                thr = itemView.findViewById(R.id.thr);
             }
+
 
             public void bind(final Card item, final OnItenClickListener1 listener){
                 tvCardImg.setImageResource(item.getDrawable());
-                itemView.setOnClickListener(new View.OnClickListener() {
+
+//                itemView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        listener.onItemclick(item);
+//                    }
+//                });
+
+                open.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        if(item.getBomb()){
-                            int n = 10;
-                            //cards[item.getName()].setDrawable(bomb.png);
-                        }
-                        else {
-                              //cards.setDrawable();
+                    public void onClick(View view) {
                         listener.onItemclick(item);
                     }
-                };
-            });
+                });
+
+                thr.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        listener.onItemclick1(item);
+                    }
+                });
         }
 
     }

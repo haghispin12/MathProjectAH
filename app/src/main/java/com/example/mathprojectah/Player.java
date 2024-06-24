@@ -2,24 +2,23 @@ package com.example.mathprojectah;
 
 public class Player {
     String name;
-    String pass;
+    int nick;
     int round;
 
-    public Player(String name,String pass,int round){
+    public Player(String name,int num){
         this.name = name;
-        this.pass=pass;
-        this.round = round;
+        this.nick = num;
     }
 
     public void setName(String name){this.name=name;}
 
-    public void setPass(String pass){this.pass=pass;}
-
     public void setRound(int round){this.round=round;}
+
+    public void setNick(int nick) {this.nick = nick;}
 
     public String getName(){return name;}
 
-    public String getPass(){return pass;}
+    public  int getNick(){return nick;}
 
     public int getRound(){return round;}
 }

@@ -42,7 +42,7 @@ public class MainActivity1 extends AppCompatActivity {
         imageButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity1.this, PlayGround.class);
+                Intent intent = new Intent(MainActivity1.this, GameActivity.class);
                 startActivity(intent);
             }
         });

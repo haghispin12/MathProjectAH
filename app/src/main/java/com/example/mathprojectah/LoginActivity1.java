@@ -42,7 +42,6 @@ public class LoginActivity1 extends AppCompatActivity {
 
     public void initView(){
 
-        FirebaseAuth auth;
         nameL = findViewById(R.id.nameL);
         passL = findViewById(R.id.passL);
         in = findViewById(R.id.in);
