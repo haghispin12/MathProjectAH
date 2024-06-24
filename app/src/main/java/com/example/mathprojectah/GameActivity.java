@@ -14,8 +14,10 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -66,16 +68,11 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String uuidString = gameId.getText().toString();
-                DocumentReference doc = FirebaseFirestore.getInstance().collection("gameSessions").document(uuidString);
-                doc.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                Player p = new Player(auth.getCurrentUser().getEmail(),2);
+                FirebaseFirestore.getInstance().collection("gameSessions").document(uuidString).update("p2",p).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if(documentSnapshot.exists()){
-                            game = documentSnapshot.toObject(Game.class);
-                            Player p = new Player(auth.getCurrentUser().getEmail(),2);
-                            if(game.getP1().getName().equals(p.getName()))
-                                Toast.makeText(GameActivity.this,"Player Already connected",Toast.LENGTH_SHORT).show();
-                        }
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(GameActivity.this,"Added Succesfully",Toast.LENGTH_SHORT).show();
                     }
                 });
 
