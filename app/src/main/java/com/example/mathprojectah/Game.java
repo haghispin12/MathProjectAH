@@ -1,15 +1,19 @@
 package com.example.mathprojectah;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Game {
     public Player p1;
     public Player p2;
     public String uuid;
+    CardsAdapter c;
+    ArrayList<Card> cards;
 
     public Game(String uuid, Player p){
         this.uuid = uuid;
         this.p1=p;
+        c= new CardsAdapter();
     }
 
     public void setp1(Player p){p1=p;}
@@ -25,5 +29,10 @@ public class Game {
     public String getUuid() {return uuid;}
 
     public void addP(Player p){p2=p;}
+
+    public void setCard(ArrayList<Card> cards){
+        c.update(cards);
+        c.notifyDataSetChanged();
+    }
 
 }

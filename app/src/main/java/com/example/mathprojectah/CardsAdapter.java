@@ -28,6 +28,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
             this.cards = cards;
             this.listener1 = listener;
         }
+        public CardsAdapter(){}
 
         @NonNull
         @Override
