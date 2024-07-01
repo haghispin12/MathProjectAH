@@ -15,8 +15,9 @@ public class Game {
         this.p1=p;
         c= new CardsAdapter();
     }
+    public Game(){}
 
-    public void setp1(Player p){p1=p;}
+    public void setP1(Player p){p1=p;}
 
     public void setP2(Player p2) {this.p2 = p2;}
 

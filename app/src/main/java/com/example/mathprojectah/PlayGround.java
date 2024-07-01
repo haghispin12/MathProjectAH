@@ -54,9 +54,12 @@ public class PlayGround extends AppCompatActivity {
         String uuid = intent.getStringExtra("uuid");
 
         cardsAdapter = new CardsAdapter(cards,new CardsAdapter.OnItenClickListener1() {
+
+            Game game = new Game();
             @Override
             public void onItemclick(Card item) {
                 boolean b = check(item,round);
+//                game.setP1(FirebaseFirestore.getInstance().collection("gameSessions").document(uuid).get("p1"));
                 FirebaseFirestore.getInstance().collection("gameSessions").document(uuid).update("cards",cards).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
@@ -90,7 +93,7 @@ public class PlayGround extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void unused) {
                     Toast.makeText(PlayGround.this, "Sucsses", Toast.LENGTH_SHORT).show();
-                    cardsAdapter.update(FirebaseFirestore.getInstance().collection("gameSessions").document(uuid).get("cards"));
+                    cardsAdapter.update(cards);
                     cardsAdapter.notifyDataSetChanged();
                 }
             });
